@@ -5,6 +5,9 @@ class List
   def initialize(data = nil)
     @head = Node.new(data)
   end
+  def play
+
+  end
 
   def tail
     current_node = @head
@@ -90,33 +93,29 @@ class List
     found.chop
   end
 
-  def pop(amount)
-    current_node = @head
-    position = count - amount
-    counter = 0
-    until counter == position
-      counter += 1
-    current_node = current_node.link
-    end
-
-    popped = ""
+  def pop(amount = 1)
+    popped = []
     amount.times do
-      popped << current_node.data
-      current_node = current_node.link
+      current_node = @head
+      next_node = current_node.link
+      until current_node.link.link == nil
+        current_node = current_node.link
+      end
+        popped << current_node.link.data + " "
+        current_node.link = nil
     end
-    popped
+    popped.reverse.join("").chop
   end
-
 end
 
 
 
-
-list = List.new("beep")
-list.append("boop")
-list.append("pop")
-list.append("dirp")
-
-puts list.head.data
-puts list.tail.data
-puts list.all
+#
+# list = List.new("beep")
+# list.append("boop")
+# list.append("pop")
+# list.append("dirp")
+#
+# puts list.head.data
+# puts list.tail.data
+# puts list.all

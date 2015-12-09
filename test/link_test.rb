@@ -68,6 +68,14 @@ class ListTest < Minitest::Test
     assert list.include?("beep")
   end
 
+  def test_it_cant_include
+    list = List.new("beep")
+    list.append("boop")
+    list.append("pop")
+    list.append("dirp")
+    refute list.include?("poop")
+  end
+
   def test_it_can_insert
     list = List.new("beep")
     list.append("boop")
@@ -83,12 +91,32 @@ class ListTest < Minitest::Test
     list.append("dirp")
     assert_equal "pop dirp", list.find(2,2)
   end
+
   def test_it_can_pop
     list = List.new("beep")
     list.append("boop")
+    list.append("dirp")
     list.append("pop")
-    assert_equal "pop", list.pop(2)
+    assert_equal "pop", list.pop
   end
-
+  #
+  def test_it_can_pop_lock_and_drop
+    list = List.new("beep")
+    list.append("boop")
+    list.append("pop")
+    list.append("bop")
+    list.pop(2)
+    assert_equal "beep boop", list.all
+  end
+  #
+  def test_pop_again
+    list = List.new("beep")
+    list.append("boop")
+    list.append("pop")
+    list.append("bop")
+    list.append("lop")
+    list.append("mop")
+    assert_equal "bop lop mop", list.pop(3)
+  end
 
 end
