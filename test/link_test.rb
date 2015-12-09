@@ -83,12 +83,12 @@ class ListTest < Minitest::Test
     list.append("dirp")
     assert_equal "pop dirp", list.find(2,2)
   end
-  # def test_it_can_pop
-  #   list = List.new("beep")
-  #   list.append("boop")
-  #   list.append("pop")
-  #   assert_equal "pop", list.pop(1)
-  # end
+  def test_it_can_pop
+    list = List.new("beep")
+    list.append("boop")
+    list.append("pop")
+    assert_equal "pop", list.pop(2)
+  end
 
 
 end
