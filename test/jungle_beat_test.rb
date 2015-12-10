@@ -43,11 +43,10 @@ class JungleBeatTest < Minitest::Test
     assert_equal "TEST beep beep boop boop doop doop", jb.all
   end
 
-  # def test_it_prepends_and_prints_count
-  #
-  #   jb = JungleBeat.new("beep beep boop boop")
-  #   assert_equal 2, jb.prepend("doop doop")
-  # end
+  def test_it_prepends_and_prints_count
+    jb = JungleBeat.new("beep beep boop boop")
+    assert_equal 2, jb.prepend("doop doop")
+  end
 
   def test_it_taks_6_beats
     jb = JungleBeat.new("beep beep boop boop doop doop")
@@ -64,17 +63,31 @@ class JungleBeatTest < Minitest::Test
     refute jb.include?("jam")
   end
 
-
   def test_it_can_find
     jb = JungleBeat.new("beep deep doop boop loop poop")
     assert_equal "boop loop", jb.find(3,2)
   end
 
-  # def test_it_can_insert
-  #   jb = JungleBeat.new("beep deep doop boop loop poop")
-  #   assert_equal "beep deep doop TEST boop loop poop", jb.insert(3,"TEST")
-  # end
+  def test_it_cant_find_position
+    jb = JungleBeat.new("beep deep doop boop")
+    assert_equal "NO! NO! NO!", jb.find(5,2)
+  end
 
+  def test_it_cant_find_amount
+    jb = JungleBeat.new("beep deep doop boop")
+    assert_equal "NO! NO! NO!", jb.find(3,5)
+  end
+
+  def test_it_can_insert
+    jb = JungleBeat.new("beep deep doop boop loop poop")
+    assert_equal "beep deep doop TEST boop loop poop", jb.insert(3,"TEST")
+  end
+
+  def test_it_cant_insert
+    jb = JungleBeat.new("beep deep doop")
+    assert_equal "That spot doesn't exist silly!", jb.insert(4, "nope")
+  end
+  
   def test_JB_can_pop_one
     jb = JungleBeat.new("beep deep doop boop loop poop")
     assert_equal "poop", jb.pop
@@ -91,10 +104,8 @@ class JungleBeatTest < Minitest::Test
     assert_equal "beep deep doop", jb.all
   end
 
-  # def test_jb_can_pop_to_many
-  #   jb = JungleBeat.new("beep deep doop")
-  #   assert_equal "beep deep doop", jb.pop(3)
-  # end
-
-
+  def test_jb_can_pop_to_many
+    jb = JungleBeat.new("beep deep doop")
+    assert_equal  "You can't do that! You only have 3 beats in here!", jb.pop(3)
+  end
 end

@@ -1,5 +1,5 @@
-TEST 123
+Let's make some beats!
 
-blah blah blah
+Open up a pry session, require jungle_beat, and PARTY!
 
-woof
+Thanks :)

@@ -4,6 +4,7 @@ class List
 
   def initialize(data = nil)
     @head = Node.new(data)
+
   end
 
   def tail
@@ -90,7 +91,7 @@ class List
     found.chop
   end
 
-  def pop(amount = 1)
+  def pop(amount = 1)  
     popped = []
     amount.times do
       current_node = @head

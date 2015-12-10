@@ -83,7 +83,7 @@ class ListTest < Minitest::Test
     list.insert(2,"DEEP")
     assert_equal "beep boop DEEP pop", list.all
   end
-  
+
 
   def test_it_can_find
     list = List.new("beep")
@@ -119,11 +119,4 @@ class ListTest < Minitest::Test
     list.append("mop")
     assert_equal "bop lop mop", list.pop(3)
   end
-
-  def test_pop_one  #FIGURE ME OUT
-    skip
-    list = List.new("beep")
-    assert_equal "beep", list.pop
-  end
-
 end
