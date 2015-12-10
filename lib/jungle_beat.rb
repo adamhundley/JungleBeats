@@ -23,14 +23,14 @@ class JungleBeat
     @rate = speed
   end
 
-  # def voice(v = "Boing")
-  #   voices = ["Agnes", "Kathy", "Princess", "Vicki", "Victoria", "Alex", "Bruce", "Fred", "Junior", "Ralph", "Albert", "Bad News", "Bahh", "Bells", "Boing", "Bubbles", "Cellos", "Deranged", "Good News", "Hysterical Pipe Organ", "Trinoids", "Whisper", "Zarvox"]
-  #   if voices.include?(v)
-  #     @voice = v
-  #   else
-  #     "Pick another voice!"
-  #   end
-  # end
+  def voice(v = "Boing")
+    voices = ["Agnes", "Kathy", "Princess", "Vicki", "Victoria", "Alex", "Bruce", "Fred", "Junior", "Ralph", "Albert", "Bad News", "Bahh", "Bells", "Boing", "Bubbles", "Cellos", "Deranged", "Good News", "Hysterical Pipe Organ", "Trinoids", "Whisper", "Zarvox"]
+    if voices.include?(v)
+      @voice = v
+    else
+      "Pick another voice!"
+    end
+  end
 
   def append(beats)
     if list == ""
